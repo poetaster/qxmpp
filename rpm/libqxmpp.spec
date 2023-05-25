@@ -125,12 +125,12 @@ popd
 %{_opt_kf5_libdir}/libQXmppOmemoQt5.so.*
 
 %files -n %{name}-devel
-%{_opt_kf5_includedir}/qxmpp/
+%{_opt_kf5_includedir}/QXmppQt5/
 %{_opt_kf5_libdir}/libQXmppQt5.so
 %{_opt_kf5_libdir}/cmake/qxmpp/
 %{_opt_kf5_libdir}/pkgconfig/qxmpp.pc
 %{_opt_kf5_libdir}/libQXmppOmemoQt5.so.*
-%{_opt_kf5_libdir}/cmake/QXmppOmemo/
+%{_opt_kf5_libdir}/cmake/QXmppOmemoQt5/
 
 %changelog
 
