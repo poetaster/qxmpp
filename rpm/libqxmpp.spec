@@ -89,12 +89,12 @@ touch .git
 mkdir -p build
 pushd build
 
-%cmake \
+%cmake .. \
   -DWITH_GSTREAMER=ON \
   -DBUILD_DOCUMENTATION=OFF \
   -DBUILD_EXAMPLES=OFF \
   -DBUILD_TESTS=OFF \
-  -DBUILD_OMEMO=ON \
+  -DBUILD_OMEMO=ON 
 
 %_opt_cmake_kf5 ../
 
