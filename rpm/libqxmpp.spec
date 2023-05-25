@@ -15,27 +15,20 @@
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 
-
-# Currently not available on 15.4 / 15.5
-%if 0%{?suse_version} > 1500
-%bcond_without omemo
-%endif
 %define sover 4
 Name:           libqxmpp
-Version:        1.5.3
+Version:        1.5.5
 Release:        0
 Summary:        Qt XMPP Library
 License:        LGPL-2.1-or-later
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/qxmpp-project/qxmpp/
-Source0:        https://github.com/qxmpp-project/qxmpp/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        %{name}-%{version}.tar.bz2
 BuildRequires:  cmake >= 3.7
 BuildRequires:  doxygen
 BuildRequires:  fdupes
 # c++-17 is required
-%if 0%{?suse_version} == 1500
 BuildRequires:  gcc10-c++
-%endif
 BuildRequires:  pkgconfig
 BuildRequires:  cmake(Qca-qt5)
 BuildRequires:  cmake(Qt5Core) >= 5.15.0
@@ -44,9 +37,7 @@ BuildRequires:  cmake(Qt5Network)
 BuildRequires:  cmake(Qt5Test)
 BuildRequires:  cmake(Qt5Xml)
 BuildRequires:  pkgconfig(gstreamer-1.0)
-%if %{with omemo}
 BuildRequires:  pkgconfig(libomemo-c)
-%endif
 
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
@@ -80,28 +71,30 @@ BuildArch:      noarch
 This packages provides documentation of Qxmpp library API.
 
 %prep
-%setup -q -n qxmpp-%{version}
+%autosetup -n %{name}-%{version}/upstream -p1
 
 %build
-%if 0%{?suse_version} <= 1500
-  export CXX=g++-10
-%endif
+export CXX=g++-10
 
-%cmake \
+touch .git
+mkdir -p build
+
+pushd build
+
+%cmake .. \
   -DWITH_GSTREAMER=ON \
-  -DBUILD_DOCUMENTATION=ON \
-  -DBUILD_EXAMPLES=ON \
+  -DBUILD_DOCUMENTATION=OFF \
+  -DBUILD_EXAMPLES=OFF \
   -DBUILD_TESTS=ON \
-%if %{with omemo}
-  -DBUILD_OMEMO=ON \
-%endif
+  -DBUILD_OMEMO=ON 
 
-%cmake_build
+%make_build
+popd
 
 %install
-%cmake_install
-
-%fdupes %{buildroot}%{_datadir}/doc/qxmpp/
+pushd build
+%make_install
+popd
 
 %check
 export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
@@ -109,28 +102,24 @@ export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
 # Exclude tests needing a network connection
 %{ctest --exclude-regex "tst_(qxmppcallmanager|qxmppiceconnection|qxmppserver|qxmpptransfermanager|qxmppuploadrequestmanager)"}
 
-%ldconfig_scriptlets -n %{name}%{sover}
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
+#%ldconfig_scriptlets -n %{name}%{sover}
 
 %files -n %{name}%{sover}
 %license LICENSES/*
 %doc AUTHORS CHANGELOG.md README.md
 %{_libdir}/%{name}.so.*
-%if %{with omemo}
 %{_libdir}/libQXmppOmemo.so.*
-%endif
 
 %files -n %{name}-devel
 %{_includedir}/qxmpp/
 %{_libdir}/%{name}.so
 %{_libdir}/cmake/qxmpp/
 %{_libdir}/pkgconfig/qxmpp.pc
-%if %{with omemo}
 %{_libdir}/libQXmppOmemo.so
 %{_libdir}/cmake/QXmppOmemo/
-%endif
-
-%files doc
-%{_datadir}/doc/qxmpp/
 
 %changelog
 
