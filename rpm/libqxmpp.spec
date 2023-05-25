@@ -94,6 +94,7 @@ pushd build
   -DBUILD_DOCUMENTATION=OFF \
   -DBUILD_EXAMPLES=OFF \
   -DBUILD_TESTS=OFF \
+  -DWITH_QCA \
   -DBUILD_OMEMO=ON 
 
 %_opt_cmake_kf5 ../
