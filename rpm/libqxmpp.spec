@@ -50,19 +50,19 @@ BuildRequires: pkgconfig(libomemo-c)
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 
-%package -n     %{name}
+%package        libs 
 Summary:        Qt XMPP Library
 Group:          System/Libraries
 Provides:       opt-kf5-libqxmpp-qt5-0 = %{version}
 Obsoletes:      opt-kf5-libqxmpp-qt5-0 < %{version}
 
-%description -n %{name}%{sover}
+%description    libs
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 
 %package -n     %{name}-devel
 Summary:        Qxmpp Development Files
 Group:          Development/Libraries/C and C++
-Requires:       %{name} = %{version}
+Requires:       %{name}-libs%{?_isa}  = %{version}
 Requires:       pkgconfig(gstreamer-1.0)
 Provides:       opt-kf5-libqxmpp-qt5-devel = %{version}
 Obsoletes:      opt-kf5-libqxmpp-qt5-devel < %{version}
@@ -126,10 +126,10 @@ popd
 
 %files -n %{name}-devel
 %{_opt_kf5_includedir}/qxmpp/
-#%{_opt_kf5_libdir}/%{name}.so
+%{_opt_kf5_libdir}/%{name}.so
 %{_opt_kf5_libdir}/cmake/qxmpp/
 %{_opt_kf5_libdir}/pkgconfig/qxmpp.pc
-#%{_opt_kf5_libdir}/libQXmppOmemo.so
+%{_opt_kf5_libdir}/libQXmppOmemo.so
 %{_opt_kf5_libdir}/cmake/QXmppOmemo/
 
 %changelog
