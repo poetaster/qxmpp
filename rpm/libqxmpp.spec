@@ -18,7 +18,7 @@
 
 %define sover 4
 Name:           opt-kf5-libqxmpp
-Version:        1.5.5
+Version:        1.5
 Release:        0
 Summary:        Qt XMPP Library
 License:        LGPL-2.1-or-later
@@ -41,7 +41,7 @@ BuildRequires: opt-qt5-qtdeclarative-devel
 BuildRequires: opt-qt5-qttools-devel
 BuildRequires: opt-kf5-rpm-macros >= %{kf5_version}
 BuildRequires: opt-qt5-qtbase-gui
-BuildRequires: cmake(Qca-qt5)
+BuildRequires: opt-qca-devel
 BuildRequires: pkgconfig(gstreamer-1.0)
 BuildRequires: pkgconfig(libomemo-c)
 
@@ -85,6 +85,13 @@ touch .git
 
 mkdir -p build
 pushd build
+
+%cmake \
+  -DWITH_GSTREAMER=ON \
+  -DBUILD_DOCUMENTATION=OFF \
+  -DBUILD_EXAMPLES=OFF \
+  -DBUILD_TESTS=OFF \
+  -DBUILD_OMEMO=ON \
 
 %_opt_cmake_kf5 ../
 
