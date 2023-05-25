@@ -15,7 +15,6 @@
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 %global kf5_version 5.106.0
-%define sover 4
 
 Name:           opt-kf5-libqxmpp
 Version:        1.5
@@ -51,7 +50,7 @@ BuildRequires: pkgconfig(libomemo-c)
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 
-%package -n     %{name}%{sover}
+%package -n     %{name}
 Summary:        Qt XMPP Library
 Group:          System/Libraries
 Provides:       opt-kf5-libqxmpp-qt5-0 = %{version}
@@ -63,7 +62,7 @@ QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 %package -n     %{name}-devel
 Summary:        Qxmpp Development Files
 Group:          Development/Libraries/C and C++
-Requires:       %{name}%{sover} = %{version}
+Requires:       %{name} = %{version}
 Requires:       pkgconfig(gstreamer-1.0)
 Provides:       opt-kf5-libqxmpp-qt5-devel = %{version}
 Obsoletes:      opt-kf5-libqxmpp-qt5-devel < %{version}
@@ -119,7 +118,7 @@ popd
 
 #%ldconfig_scriptlets -n %{name}%{sover}
 
-%files -n %{name}%{sover}
+%files -n %{name}
 %license LICENSES/*
 %doc AUTHORS CHANGELOG.md README.md
 %{_opt_kf5_libdir}/%{name}.so.*
