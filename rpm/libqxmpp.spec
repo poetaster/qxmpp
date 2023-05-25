@@ -16,7 +16,6 @@
 #
 %global kf5_version 5.106.0
 
-%define sover 4
 Name:           opt-kf5-libqxmpp
 Version:        1.5
 Release:        0
@@ -25,6 +24,9 @@ License:        LGPL-2.1-or-later
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/qxmpp-project/qxmpp/
 Source0:        %{name}-%{version}.tar.bz2
+
+
+%global __requires_exclude ^libqca-qt5.*$
 
 ## upstreamable patches
 %{?opt_kf5_default_filter}
@@ -41,26 +43,26 @@ BuildRequires: opt-qt5-qtdeclarative-devel
 BuildRequires: opt-qt5-qttools-devel
 BuildRequires: opt-kf5-rpm-macros >= %{kf5_version}
 BuildRequires: opt-qt5-qtbase-gui
-BuildRequires: opt-qca-devel
+BuildRequires: opt-qca-qt5-devel
 BuildRequires: pkgconfig(gstreamer-1.0)
 BuildRequires: pkgconfig(libomemo-c)
 
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 
-%package -n %{name}%{sover}
+%package -n %{name}
 Summary:        Qt XMPP Library
 Group:          System/Libraries
 Provides:       opt-kf5-libqxmpp-qt5-0 = %{version}
 Obsoletes:      opt-kf5-libqxmpp-qt5-0 < %{version}
 
-%description -n %{name}%{sover}
+%description -n %{name}
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 
 %package -n %{name}-devel
 Summary:        Qxmpp Development Files
 Group:          Development/Libraries/C and C++
-Requires:       %{name}%{sover} = %{version}
+Requires:       %{name} = %{version}
 Requires:       pkgconfig(gstreamer-1.0)
 Provides:       opt-kf5-libqxmpp-qt5-devel = %{version}
 Obsoletes:      opt-kf5-libqxmpp-qt5-devel < %{version}
@@ -105,7 +107,7 @@ make DESTDIR=%{buildroot} install
 popd
 
 %check
-export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
+#export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
 
 # Exclude tests needing a network connection
 #%{ctest --exclude-regex "tst_(qxmppcallmanager|qxmppiceconnection|qxmppserver|qxmpptransfermanager|qxmppuploadrequestmanager)"}
