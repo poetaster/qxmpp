@@ -47,28 +47,27 @@ BuildRequires: opt-qca-qt5-devel
 BuildRequires: pkgconfig(gstreamer-1.0)
 BuildRequires: pkgconfig(libomemo-c)
 
+%{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}
+
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 
 %package        libs 
 Summary:        Qt XMPP Library
 Group:          System/Libraries
-Provides:       opt-kf5-libqxmpp-qt5-0 = %{version}
-Obsoletes:      opt-kf5-libqxmpp-qt5-0 < %{version}
 
 %description    libs
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 
-%package -n     %{name}-devel
+%package        devel
 Summary:        Qxmpp Development Files
 Group:          Development/Libraries/C and C++
-Requires:       %{name}-libs%{?_isa}  = %{version}
+Requires:       %{name}-libs%{?_isa}  = %{version}-%{release}
 Requires:       pkgconfig(gstreamer-1.0)
-Provides:       opt-kf5-libqxmpp-qt5-devel = %{version}
-Obsoletes:      opt-kf5-libqxmpp-qt5-devel < %{version}
 
-%description -n %{name}-devel
-Development package for qxmpp.
+%description    devel
+The %{name}-devel package contains libraries and header files for
+developing applications that use qxmpp.
 
 %package doc
 Summary:        Qxmpp library documentation
