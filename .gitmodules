@@ -1,0 +1,4 @@
+[submodule "ronqxmpp"]
+	path = ronqxmpp
+	url = https://github.com/ron282/qxmpp
+	branch = 1.5
