@@ -52,7 +52,7 @@ BuildArch:      noarch
 This packages provides documentation of Qxmpp library API.
 
 %prep
-%autosetup -n %{name}-%{version}/upstream -p1
+%autosetup -n %{name}-%{version}/ron282 -p1
 
 %build
 touch .git
