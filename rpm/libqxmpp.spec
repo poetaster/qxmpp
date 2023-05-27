@@ -26,7 +26,7 @@ URL:            https://github.com/qxmpp-project/qxmpp/
 Source0:        %{name}-%{version}.tar.bz2
 
 
-%global __requires_exclude ^libqca-qt5.*$
+%global __requires_exclude ^libQXmpp*$
 
 ## upstreamable patches
 %{?opt_kf5_default_filter}
@@ -110,7 +110,7 @@ popd
 #export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
 
 # Exclude tests needing a network connection
-#%{ctest --exclude-regex "tst_(qxmppcallmanager|qxmppiceconnection|qxmppserver|qxmpptransfermanager|qxmppuploadrequestmanager)"}
+%{ctest --exclude-regex "tst_(qxmppcallmanager|qxmppiceconnection|qxmppserver|qxmpptransfermanager|qxmppuploadrequestmanager)"}
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
