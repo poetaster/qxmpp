@@ -6,7 +6,7 @@ Summary:        Qt XMPP Library
 License:        LGPL-2.1-or-later
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/qxmpp-project/qxmpp/
-Source0:        https://github.com/qxmpp-project/qxmpp/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        %{name}-%{version}.tar.gz
 BuildRequires:  cmake >= 3.7
 BuildRequires:  doxygen
 BuildRequires:  fdupes
@@ -52,31 +52,35 @@ BuildArch:      noarch
 This packages provides documentation of Qxmpp library API.
 
 %prep
-%setup -q -n qxmpp-%{version}
+%autosetup -n %{name}-%{version}/upstream -p1
 
 %build
+touch .git
+mkdir -p build
+pushd build
 
-%cmake \
+%cmake ../ \
   -DWITH_GSTREAMER=ON \
   -DBUILD_DOCUMENTATION=OFF \
   -DBUILD_EXAMPLES=OFF \
   -DBUILD_TESTS=OFF \
   -DBUILD_OMEMO=ON \
 
-%cmake_build
+%make_build
+popd
 
 %install
-%cmake_install
+rm -rf %{buildroot}
+pushd build
+make install DESTDIR=%{buildroot}
+popd
 
-%fdupes %{buildroot}%{_datadir}/doc/qxmpp/
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
-%check
-export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
+%post   devel -p /sbin/ldconfig
+%postun devel -p /sbin/ldconfig
 
-# Exclude tests needing a network connection
-#%{ctest --exclude-regex "tst_(qxmppcallmanager|qxmppiceconnection|qxmppserver|qxmpptransfermanager|qxmppuploadrequestmanager)"}
-
-%ldconfig_scriptlets -n %{name}%{sover}
 
 %files -n %{name}%{sover}
 %license LICENSES/*
