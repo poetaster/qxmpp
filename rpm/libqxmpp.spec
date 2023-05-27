@@ -102,6 +102,7 @@ popd
 %{_opt_qt5_includedir}/QXmppQt5/
 %{_opt_qt5_libdir}/libQXmppQt5.so*
 %{_opt_qt5_libdir}/cmake/QXmppQt5/
+%{_opt_qt5_libdir}/cmake/QXmpp/
 %{_opt_qt5_libdir}/pkgconfig/QXmppQt5.pc
 %{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
 %{_opt_qt5_libdir}/libQXmppOmemoQt5.so*
