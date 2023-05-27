@@ -110,7 +110,7 @@ popd
 #export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
 
 # Exclude tests needing a network connection
-%{ctest --exclude-regex "tst_(qxmppcallmanager|qxmppiceconnection|qxmppserver|qxmpptransfermanager|qxmppuploadrequestmanager)"}
+#%{ctest --exclude-regex "tst_(qxmppcallmanager|qxmppiceconnection|qxmppserver|qxmpptransfermanager|qxmppuploadrequestmanager)"}
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
