@@ -1,4 +1,3 @@
-%define sover 4
 Name:           libqxmpp
 Version:        1.5.0
 Release:        0
@@ -23,19 +22,19 @@ BuildRequires:  pkgconfig(libomemo-c)
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 
-%package -n %{name}%{sover}
+%package -n     %{name}
 Summary:        Qt XMPP Library
 Group:          System/Libraries
-Provides:       libqxmpp-qt5-0 = %{version}
-Obsoletes:      libqxmpp-qt5-0 < %{version}
+Provides:       libqxmpp-qt5 = %{version}
+Obsoletes:      libqxmpp-qt5 < %{version}
 
 %description -n %{name}%{sover}
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 
-%package -n %{name}-devel
+%package -n     %{name}-devel
 Summary:        Qxmpp Development Files
 Group:          Development/Libraries/C and C++
-Requires:       %{name}%{sover} = %{version}
+Requires:       %{name} = %{version}
 Requires:       pkgconfig(gstreamer-1.0)
 Provides:       libqxmpp-qt5-devel = %{version}
 Obsoletes:      libqxmpp-qt5-devel < %{version}
@@ -82,9 +81,9 @@ popd
 %postun devel -p /sbin/ldconfig
 
 
-%files -n %{name}%{sover}
-%license LICENSES/*
-%doc AUTHORS CHANGELOG.md README.md
+%files -n %{name}
+%license COPYING
+%doc README
 %{_libdir}/%{name}.so.*
 %{_libdir}/libQXmppOmemo.so.*
 
