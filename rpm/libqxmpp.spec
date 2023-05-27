@@ -1,19 +1,3 @@
-#
-# spec file for package libqxmpp
-#
-# Copyright (c) 2023 SUSE LLC
-#
-# All modifications and additions to the file contributed by third parties
-# remain the property of their copyright owners, unless otherwise agreed
-# upon. The license for this file, and modifications and additions to the
-# file, is the same license as for the pristine package itself (unless the
-# license for the pristine package is not an Open Source License, in which
-# case the license is the MIT License). An "Open Source License" is a
-# license that conforms to the Open Source Definition (Version 1.9)
-# published by the Open Source Initiative.
-
-# Please submit bugfixes or comments via https://bugs.opensuse.org/
-#
 %global kf5_version 5.106.0
 
 Name:           opt-kf5-libqxmpp
@@ -24,7 +8,6 @@ License:        LGPL-2.1-or-later
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/qxmpp-project/qxmpp/
 Source0:        %{name}-%{version}.tar.bz2
-
 
 %global __requires_exclude ^(libQXmpp*|libqca-qt5.*)$
 
@@ -46,9 +29,10 @@ BuildRequires: opt-qt5-qtbase-gui
 BuildRequires: opt-qca-qt5-devel
 BuildRequires: pkgconfig(gstreamer-1.0)
 BuildRequires: pkgconfig(libomemo-c)
-Requires:      opt-qca-qt5
 
 %{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}
+Requires:      opt-qca-qt5
+Requires:      pkgconfig(libomemo-c)
 
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
