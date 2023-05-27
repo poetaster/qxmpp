@@ -9,7 +9,9 @@ Group:          Development/Libraries/C and C++
 URL:            https://github.com/qxmpp-project/qxmpp/
 Source0:        %{name}-%{version}.tar.bz2
 
-%global __requires_exclude ^(libQXmpp*|libqca-qt5.*)$
+%global __requires_exclude ^libQXmppQt5.*$
+%global __requires_exclude ^libQXmppOmemoQt5.*$
+%global __requires_exclude ^libqca-qt5.*$
 
 ## upstreamable patches
 %{?opt_kf5_default_filter}
