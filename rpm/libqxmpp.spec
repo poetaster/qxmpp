@@ -26,7 +26,7 @@ URL:            https://github.com/qxmpp-project/qxmpp/
 Source0:        %{name}-%{version}.tar.bz2
 
 
-%global __requires_exclude ^libQXmpp*$
+%global __requires_exclude ^(libQXmpp*|libqca-qt5.*)$
 
 ## upstreamable patches
 %{?opt_kf5_default_filter}
@@ -46,6 +46,7 @@ BuildRequires: opt-qt5-qtbase-gui
 BuildRequires: opt-qca-qt5-devel
 BuildRequires: pkgconfig(gstreamer-1.0)
 BuildRequires: pkgconfig(libomemo-c)
+Requires:      opt-qca-qt5
 
 %{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}
 
