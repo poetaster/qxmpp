@@ -80,20 +80,21 @@ popd
 %post   devel -p /sbin/ldconfig
 %postun devel -p /sbin/ldconfig
 
-
 %files -n %{name}
 %license COPYING
 %doc README
-%{_libdir}/%{name}.so.*
-%{_libdir}/libQXmppOmemo.so.*
+%{_libdir}/libQXmppQt5.so*
+%{_libdir}/libQXmppOmemoQt5.so*
 
 %files -n %{name}-devel
-%{_includedir}/qxmpp/
-%{_libdir}/%{name}.so
-%{_libdir}/cmake/qxmpp/
-%{_libdir}/pkgconfig/qxmpp.pc
-%{_libdir}/libQXmppOmemo.so
-%{_libdir}/cmake/QXmppOmemo/
+%{_opt_qt5_includedir}/QXmppQt5/
+%{_opt_qt5_libdir}/libQXmppQt5.so*
+%{_opt_qt5_libdir}/cmake/QXmppQt5/
+%{_opt_qt5_libdir}/cmake/QXmpp/
+%{_opt_qt5_libdir}/pkgconfig/QXmppQt5.pc
+%{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
+%{_opt_qt5_libdir}/libQXmppOmemoQt5.so*
+%{_opt_qt5_libdir}/cmake/QXmppOmemoQt5/
 
 %files doc
 %{_datadir}/doc/qxmpp/
