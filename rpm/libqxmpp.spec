@@ -10,7 +10,7 @@ BuildRequires:  cmake >= 3.7
 BuildRequires:  doxygen
 BuildRequires:  fdupes
 BuildRequires:  pkgconfig
-BuildRequires:  qca-devel
+BuildRequires:  qca
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Network)
