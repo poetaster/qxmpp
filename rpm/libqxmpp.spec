@@ -17,7 +17,7 @@ BuildRequires:  pkgconfig(Qt5Test)
 BuildRequires:  pkgconfig(Qt5Xml)
 BuildRequires:  pkgconfig(gstreamer-1.0)
 BuildRequires:  pkgconfig(libomemo-c)
-Requires:       pkgconfig(qca)
+Requires:       qca-devel
 
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
@@ -51,7 +51,7 @@ BuildArch:      noarch
 This packages provides documentation of Qxmpp library API.
 
 %prep
-%autosetup -n %{name}-%{version}/ron282 -p1
+%autosetup -n %{name}-%{version}/ronqxmpp -p1
 
 %build
 touch .git
