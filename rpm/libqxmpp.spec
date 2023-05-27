@@ -70,14 +70,6 @@ Requires:       pkgconfig(gstreamer-1.0)
 The %{name}-devel package contains libraries and header files for
 developing applications that use qxmpp.
 
-%package doc
-Summary:        Qxmpp library documentation
-Group:          Documentation/HTML
-BuildArch:      noarch
-
-%description doc
-This packages provides documentation of Qxmpp library API.
-
 %prep
 %autosetup -n %{name}-%{version}/upstream -p1
 
@@ -88,15 +80,13 @@ touch .git
 mkdir -p build
 pushd build
 
-%cmake .. \
+%_opt_cmake_kf5 ../ \
   -DWITH_GSTREAMER=ON \
   -DBUILD_DOCUMENTATION=OFF \
   -DBUILD_EXAMPLES=OFF \
   -DBUILD_TESTS=OFF \
   -DWITH_QCA=ON \
   -DBUILD_OMEMO=ON 
-
-%_opt_cmake_kf5 ../
 
 %make_build
 
@@ -126,14 +116,12 @@ popd
 
 %files -n %{name}-devel
 %{_opt_qt5_includedir}/QXmppQt5/
-%{_opt_qt5_libdir}/libQXmppQt5.so
 %{_opt_qt5_libdir}/libQXmppQt5.so*
 %{_opt_qt5_libdir}/cmake/QXmppQt5/
 %{_opt_qt5_libdir}/pkgconfig/QXmppQt5.pc
 %{_opt_qt5_libdir}/cmake/QXmpp/
 %{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
-%{_opt_qt5_libdir}/libQXmppOmemoQt5.so.*
-%{_opt_qt5_libdir}/libQXmppOmemoQt5.so
+%{_opt_qt5_libdir}/libQXmppOmemoQt5.so*
 %{_opt_qt5_libdir}/cmake/QXmppOmemoQt5/
 
 %changelog
