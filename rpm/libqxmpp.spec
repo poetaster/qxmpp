@@ -55,9 +55,6 @@ This packages provides documentation of Qxmpp library API.
 %setup -q -n qxmpp-%{version}
 
 %build
-%if 0%{?suse_version} <= 1500
-  export CXX=g++-10
-%endif
 
 %cmake \
   -DWITH_GSTREAMER=ON \
@@ -85,19 +82,15 @@ export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
 %license LICENSES/*
 %doc AUTHORS CHANGELOG.md README.md
 %{_libdir}/%{name}.so.*
-%if %{with omemo}
 %{_libdir}/libQXmppOmemo.so.*
-%endif
 
 %files -n %{name}-devel
 %{_includedir}/qxmpp/
 %{_libdir}/%{name}.so
 %{_libdir}/cmake/qxmpp/
 %{_libdir}/pkgconfig/qxmpp.pc
-%if %{with omemo}
 %{_libdir}/libQXmppOmemo.so
 %{_libdir}/cmake/QXmppOmemo/
-%endif
 
 %files doc
 %{_datadir}/doc/qxmpp/
