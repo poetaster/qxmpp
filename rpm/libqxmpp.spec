@@ -29,6 +29,7 @@ BuildRequires: pkgconfig(gstreamer-1.0)
 BuildRequires: pkgconfig(libomemo-c)
 
 Requires:      opt-qca-qt5
+Requires:      opt-qca-qt5-ossl
 Requires:      pkgconfig(libomemo-c)
 
 %{?opt_kf5_default_filter}
