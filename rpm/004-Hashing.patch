@@ -1,8 +1,8 @@
 diff --git a/src/base/QXmppHashing.cpp b/src/base/QXmppHashing.cpp
-index 3c64661a..2616fe4c 100644
+index 3c64661a..87b868f2 100644
 --- a/src/base/QXmppHashing.cpp
 +++ b/src/base/QXmppHashing.cpp
-@@ -28,12 +28,15 @@ static HashAlgorithm toHashAlgorithm(QCryptographicHash::Algorithm algorithm)
+@@ -28,10 +28,12 @@ static HashAlgorithm toHashAlgorithm(QCryptographicHash::Algorithm algorithm)
  {
      switch (algorithm) {
      case QCryptographicHash::Md4:
@@ -14,7 +14,4 @@ index 3c64661a..2616fe4c 100644
 +#endif
      case QCryptographicHash::Sha3_224:
      case QCryptographicHash::Sha3_384:
-+    case QCryptographicHash::Sha3_512:
  #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-     case QCryptographicHash::Blake2b_160:
-     case QCryptographicHash::Blake2b_384:
