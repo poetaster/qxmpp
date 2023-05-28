@@ -99,10 +99,8 @@ popd
 
 %files -n %{name}-devel
 %{_opt_qt5_includedir}/qxmpp/
-%{_opt_qt5_libdir}/libqxmpp.so*
 %{_opt_qt5_libdir}/cmake/qxmpp/
 %{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
-%{_opt_qt5_libdir}/libQXmppOmemo.so*
 %{_opt_qt5_libdir}/cmake/QXmppOmemo/
 
 %changelog
