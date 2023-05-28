@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e49548fb..0bd8b8ca 100644
+index 55df5d54..9f1252eb 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -22,7 +22,7 @@ if(NOT DEFINED QT_VERSION_MAJOR)
+@@ -18,7 +18,7 @@ if(NOT DEFINED QT_VERSION_MAJOR)
      find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Network Xml)
  endif()
  message("-- Choosing Qt ${QT_VERSION_MAJOR}")
@@ -11,3 +11,4 @@ index e49548fb..0bd8b8ca 100644
  
  # QCA (optional)
  find_package(Qca-qt${QT_VERSION_MAJOR} QUIET)
+

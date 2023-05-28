@@ -1,5 +1,5 @@
 Name:           libqxmpp
-Version:        1.5.0
+Version:        1.5.3
 Release:        0
 Summary:        Qt XMPP Library
 License:        LGPL-2.1-or-later
