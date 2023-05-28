@@ -97,17 +97,15 @@ popd
 %files -n %{name}
 %license LICENSES/*
 %doc AUTHORS CHANGELOG.md README.md
-%{_opt_qt5_libdir}/libqxmpp.so.*
-%{_opt_qt5_libdir}/libQXmppOmemo.so.*
+%{_opt_qt5_libdir}/libqxmpp.so*
+%{_opt_qt5_libdir}/libQXmppOmemo.so*
 
 %files -n %{name}-devel
-%{_opt_qt5_includedir}/QXmppQt5/
+%{_opt_qt5_includedir}/qxmpp/
 %{_opt_qt5_libdir}/libqxmpp.so*
-%{_opt_qt5_libdir}/cmake/QXmppQt5/
-%{_opt_qt5_libdir}/cmake/QXmpp/
-%{_opt_qt5_libdir}/pkgconfig/QXmppQt5.pc
+%{_opt_qt5_libdir}/cmake/qxmpp/
 %{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
 %{_opt_qt5_libdir}/libQXmppOmemo.so*
-%{_opt_qt5_libdir}/cmake/QXmppOmemoQt5/
+%{_opt_qt5_libdir}/cmake/QXmppOmemo/
 
 %changelog
