@@ -6,6 +6,7 @@ License:        LGPL-2.1-or-later
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/qxmpp-project/qxmpp/
 Source0:        %{name}-%{version}.tar.gz
+Patch0:         001-version.patch
 BuildRequires:  cmake >= 3.7
 BuildRequires:  doxygen
 BuildRequires:  fdupes
