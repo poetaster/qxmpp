@@ -73,8 +73,6 @@ popd
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%post   devel -p /sbin/ldconfig
-%postun devel -p /sbin/ldconfig
 
 %files -n %{name}
 %license LICENSES/*
