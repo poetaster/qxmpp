@@ -9,6 +9,7 @@ Source0:        %{name}-%{version}.tar.gz
 Patch0:         001-version.patch
 Patch1:         002-Task.patch
 Patch2:         003-Future.patch
+Patch3:         004-Hashing.patch
 BuildRequires:  cmake >= 3.7
 BuildRequires:  doxygen
 BuildRequires:  fdupes
