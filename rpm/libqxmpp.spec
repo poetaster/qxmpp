@@ -1,15 +1,15 @@
 Name:           libqxmpp
-Version:        1.5.3
+Version:        1.5
 Release:        0
 Summary:        Qt XMPP Library
 License:        LGPL-2.1-or-later
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/qxmpp-project/qxmpp/
 Source0:        %{name}-%{version}.tar.gz
-Patch0:         001-version.patch
-Patch1:         002-Task.patch
-Patch2:         003-Future.patch
-Patch3:         004-Hashing.patch
+#Patch0:         001-version.patch
+#Patch1:         002-Task.patch
+#Patch2:         003-Future.patch
+#Patch3:         004-Hashing.patch
 BuildRequires:  cmake >= 3.7
 BuildRequires:  doxygen
 BuildRequires:  fdupes
@@ -55,7 +55,7 @@ BuildArch:      noarch
 This packages provides documentation of Qxmpp library API.
 
 %prep
-%autosetup -n %{name}-%{version}/upstream -p1
+%autosetup -n %{name}-%{version}/ronqxmpp -p1
 
 %build
 touch .git
