@@ -1,7 +1,8 @@
 %global kf5_version 5.106.0
-%global __requires_exclude ^libQXmppQt5.*$
-%global __requires_exclude ^libQXmppOmemoQt5.*$
-%global __requires_exclude ^libqca-qt5.*$
+%global __requires_exclude ^libqxmpp\\.*$
+%global __provides_exclude ^libqxmpp\\.*$
+%global __requires_exclude ^libQXmppOmemo\\.*$
+%global __provides_exclude ^libQXmppOmemo\\.*$
 
 Name:           opt-kf5-libqxmpp
 Version:        1.5
@@ -96,17 +97,17 @@ popd
 %files -n %{name}
 %license LICENSES/*
 %doc AUTHORS CHANGELOG.md README.md
-%{_opt_qt5_libdir}/libQXmppQt5.so.*
-%{_opt_qt5_libdir}/libQXmppOmemoQt5.so.*
+%{_opt_qt5_libdir}/libqxmpp.so.*
+%{_opt_qt5_libdir}/libQXmppOmemo.so.*
 
 %files -n %{name}-devel
 %{_opt_qt5_includedir}/QXmppQt5/
-%{_opt_qt5_libdir}/libQXmppQt5.so*
+%{_opt_qt5_libdir}/libqxmpp.so*
 %{_opt_qt5_libdir}/cmake/QXmppQt5/
 %{_opt_qt5_libdir}/cmake/QXmpp/
 %{_opt_qt5_libdir}/pkgconfig/QXmppQt5.pc
 %{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
-%{_opt_qt5_libdir}/libQXmppOmemoQt5.so*
+%{_opt_qt5_libdir}/libQXmppOmemo.so*
 %{_opt_qt5_libdir}/cmake/QXmppOmemoQt5/
 
 %changelog
