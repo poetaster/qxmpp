@@ -90,7 +90,8 @@ popd
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-#%ldconfig_scriptlets -n %{name}%{sover}
+%post   devel -p /sbin/ldconfig
+%postun devel -p /sbin/ldconfig
 
 %files -n %{name}
 %license LICENSES/*
