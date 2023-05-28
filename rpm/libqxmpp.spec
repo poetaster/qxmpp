@@ -1,7 +1,4 @@
 %global kf5_version 5.106.0
-%global __requires_exclude ^libqxmpp.*$
-%global __requires_exclude ^libQXmppOmemo.*$
-%global __requires_exclude ^libqca-qt5.*$
 
 Name:           opt-kf5-libqxmpp
 Version:        1.5
@@ -31,6 +28,10 @@ BuildRequires: pkgconfig(libomemo-c)
 Requires:      opt-qca-qt5
 Requires:      opt-qca-qt5-ossl
 Requires:      pkgconfig(libomemo-c)
+
+%global __requires_exclude ^libqxmpp.*$|
+%global __requires_exclude ^libQXmppOmemo.*$|
+%global __requires_exclude ^libqca-qt5.*$|
 
 %{?opt_kf5_default_filter}
 
@@ -81,6 +82,6 @@ popd
 %{_opt_qt5_libdir}/cmake/qxmpp/
 %{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
 %{_opt_qt5_libdir}/cmake/QXmppOmemo/
-%{_opt_qt5_libdir}/libqxmpp.so*
-%{_opt_qt5_libdir}/libQXmppOmemo.so*
+%{_opt_qt5_libdir}/libqxmpp.*
+%{_opt_qt5_libdir}/libQXmppOmemo.*
 
