@@ -1,4 +1,7 @@
 %global kf5_version 5.106.0
+%global __requires_exclude ^libQXmppQt5.*$
+%global __requires_exclude ^libQXmppOmemoQt5.*$
+%global __requires_exclude ^libqca-qt5.*$
 
 Name:           opt-kf5-libqxmpp
 Version:        1.5
