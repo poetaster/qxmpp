@@ -49,8 +49,6 @@ QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 %package        devel
 Summary:        Qxmpp Development Files
 Group:          Development/Libraries/C and C++
-Requires:       %{name}%{?_isa}  = %{version}-%{release}
-Requires:       pkgconfig(gstreamer-1.0)
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
