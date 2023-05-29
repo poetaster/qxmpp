@@ -20,7 +20,7 @@ BuildRequires:  pkgconfig(Qt5Network)
 BuildRequires:  pkgconfig(Qt5Test)
 BuildRequires:  pkgconfig(Qt5Xml)
 BuildRequires:  pkgconfig(gstreamer-1.0)
-BuildRequires:  pkgconfig(libomemo-c)
+BuildRequires:  libomemo-c-devel
 BuildRequires:  qca-devel
 
 %description
@@ -68,7 +68,7 @@ pushd build
   -DBUILD_EXAMPLES=OFF \
   -DBUILD_TESTS=OFF \
   -DBUILD_OMEMO=ON \
-  -DBUILD_OMEMO=V03 \
+  -DBUILD_WITH_OMEMO_V03 \
 
 %make_build
 popd
