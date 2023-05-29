@@ -68,6 +68,7 @@ pushd build
   -DBUILD_EXAMPLES=OFF \
   -DBUILD_TESTS=OFF \
   -DBUILD_OMEMO=ON \
+  -DBUILD_OMEMO_V03 \
 
 %make_build
 popd
