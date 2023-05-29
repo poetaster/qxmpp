@@ -46,14 +46,6 @@ Obsoletes:      libqxmpp-qt5-devel < %{version}
 %description    devel
 Development package for qxmpp.
 
-%package doc
-Summary:        Qxmpp library documentation
-Group:          Documentation/HTML
-BuildArch:      noarch
-
-%description doc
-This packages provides documentation of Qxmpp library API.
-
 %prep
 %autosetup -n %{name}-%{version}/ronqxmpp -p1
 
@@ -98,9 +90,6 @@ popd
 %{_libdir}/pkgconfig/qxmpp.pc
 %{_libdir}/libQXmppOmemoQt5.so*
 %{_libdir}/cmake/QXmppOmemoQt5/
-
-%files doc
-%{_datadir}/doc/qxmpp/
 
 %changelog
 
