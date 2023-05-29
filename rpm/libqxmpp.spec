@@ -86,8 +86,6 @@ popd
 %postun devel -p /sbin/ldconfig
 
 %files -n %{name}
-%license COPYING
-%doc README
 %{_libdir}/libQXmppQt5.so*
 %{_libdir}/libQXmppOmemoQt5.so*
 
