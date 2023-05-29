@@ -90,14 +90,14 @@ popd
 %{_libdir}/libQXmppOmemoQt5.so*
 
 %files -n %{name}-devel
-%{_opt_qt5_includedir}/QXmppQt5/
-%{_opt_qt5_libdir}/libQXmppQt5.so*
-%{_opt_qt5_libdir}/cmake/QXmppQt5/
-%{_opt_qt5_libdir}/cmake/QXmpp/
-%{_opt_qt5_libdir}/pkgconfig/QXmppQt5.pc
-%{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
-%{_opt_qt5_libdir}/libQXmppOmemoQt5.so*
-%{_opt_qt5_libdir}/cmake/QXmppOmemoQt5/
+%{_includedir}/QXmppQt5/
+%{_libdir}/libQXmppQt5.so*
+%{_libdir}/cmake/QXmppQt5/
+%{_libdir}/cmake/QXmpp/
+%{_libdir}/pkgconfig/QXmppQt5.pc
+%{_libdir}/pkgconfig/qxmpp.pc
+%{_libdir}/libQXmppOmemoQt5.so*
+%{_libdir}/cmake/QXmppOmemoQt5/
 
 %files doc
 %{_datadir}/doc/qxmpp/
