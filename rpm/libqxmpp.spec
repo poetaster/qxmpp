@@ -28,9 +28,6 @@ BuildRequires: pkgconfig(gstreamer-1.0)
 BuildRequires: pkgconfig(libomemo-c)
 
 Requires:      pkgconfig(libomemo-c)
-
-%{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}
-
 Requires:      opt-qca-qt5
 Requires:      opt-qca-qt5-ossl
 
@@ -39,8 +36,8 @@ Provides:      libqxmpp.so.4
 Provides:      libQXmppOmemo.so.4
 %endif 
 %if %{__isa_bits} == 64
-Provides:      libqxmpp.so.4()%{_isa}
-Provides:      libQXmppOmemo.so.4()%{_isa}
+Provides:      libqxmpp.so.4%{_isa}
+Provides:      libQXmppOmemo.so.4%{_isa}
 %endif 
 
 %description
@@ -83,7 +80,7 @@ make DESTDIR=%{buildroot} install
 popd
 
 %check
-export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
+#export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
 
 # Exclude tests needing a network connection
 #%{ctest --exclude-regex "tst_(qxmppcallmanager|qxmppiceconnection|qxmppserver|qxmpptransfermanager|qxmppuploadrequestmanager)"}
