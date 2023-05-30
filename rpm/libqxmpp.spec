@@ -29,6 +29,9 @@ BuildRequires: pkgconfig(libomemo-c)
 
 Requires:      pkgconfig(libomemo-c)
 
+Provides: libqxmpp.so.4
+Provides: libQXmppOmemo.so.4
+
 %{?_opt_qt5:Requires: %{_opt_qt5}%{?_isa} = %{_opt_qt5_version}}
 Requires:      opt-qca-qt5
 Requires:      opt-qca-qt5-ossl
