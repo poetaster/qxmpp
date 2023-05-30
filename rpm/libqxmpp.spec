@@ -10,12 +10,7 @@ Group:          Development/Libraries/C and C++
 URL:            https://github.com/qxmpp-project/qxmpp/
 Source0:        %{name}-%{version}.tar.bz2
 
-%global __requires_exclude ^libqxmpp.*$
-%global __requires_exclude ^libQXmppOmemo.*$
-%global __requires_exclude ^libqca-qt5.*$
-
 %{?opt_qt5_default_filter}
-%{?opt_kf5_default_filter}
 
 BuildRequires:  cmake >= 3.7
 BuildRequires:  gcc-c++
