@@ -34,11 +34,13 @@ Requires:      pkgconfig(libomemo-c)
 Requires:      opt-qca-qt5
 Requires:      opt-qca-qt5-ossl
 
+%if %{__isa_bits} == 32
 Provides:      libqxmpp.so.4
 Provides:      libQXmppOmemo.so.4
+%endif 
 %if %{__isa_bits} == 64
-Provides:      libqxmpp.so.4%{_isa}
-Provides:      libQXmppOmemo.so.4%{_isa}
+Provides:      libqxmpp.so.4()%{_isa}
+Provides:      libQXmppOmemo.so.4()%{_isa}
 %endif 
 
 %description
