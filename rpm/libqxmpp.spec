@@ -15,6 +15,7 @@ Source0:        %{name}-%{version}.tar.bz2
 %global __requires_exclude ^libqca-qt5.*$
 
 %{?opt_qt5_default_filter}
+%{?opt_kf5_default_filter}
 
 BuildRequires:  cmake >= 3.7
 BuildRequires:  gcc-c++
@@ -25,6 +26,8 @@ BuildRequires: opt-extra-cmake-modules >= %{kf5_version}
 BuildRequires: opt-qt5-qtbase-devel
 BuildRequires: opt-qt5-qtdeclarative-devel
 BuildRequires: opt-qt5-qttools-devel
+BuildRequires: opt-kf5-rpm-macros >= %{kf5_version}
+BuildRequires: opt-qt5-rpm-macros
 BuildRequires: opt-qt5-qtbase-gui
 BuildRequires: opt-qca-qt5-devel
 BuildRequires: pkgconfig(gstreamer-1.0)
@@ -33,6 +36,15 @@ BuildRequires: pkgconfig(libomemo-c)
 Requires:      pkgconfig(libomemo-c)
 Requires:      opt-qca-qt5
 Requires:      opt-qca-qt5-ossl
+
+%if %{__isa_bits} == 32
+Provides:      libqxmpp.so.4
+Provides:      libQXmppOmemo.so.4
+%endif 
+%if %{__isa_bits} == 64
+Provides:      libqxmpp.so.4%{_isa}
+Provides:      libQXmppOmemo.so.4%{_isa}
+%endif 
 
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
