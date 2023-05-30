@@ -50,7 +50,7 @@ Summary:	Development files for QXmpp
 Group:		Development/KDE and Qt
 Requires:	libqxmpp
 
-%description -n libqxmpp-devel
+%description devel
 Development files for QXmpp, a library for using the XMPP messenging
 protocol with Qt
 
