@@ -34,8 +34,8 @@ Requires:      pkgconfig(libomemo-c)
 Requires:      opt-qca-qt5
 Requires:      opt-qca-qt5-ossl
 
-Provides:      libqxmpp.so.4%{?_isa}
-Provides:      libQXmppOmemo.so.4%{?_isa}
+Provides:      libqxmpp.so.4
+Provides:      libQXmppOmemo.so.4
 
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
