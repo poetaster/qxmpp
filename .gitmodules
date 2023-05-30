@@ -1,3 +1,8 @@
 [submodule "upstream"]
 	path = upstream
-	url = https://github.com/qxmpp-project/qxmpp
+    url = https://github.com/qxmpp-project/qxmpp
+[submodule "ronqxmpp"]
+	path = ronqxmpp
+	url = https://github.com/ron282/qxmpp
+	branch = 1.5
+
