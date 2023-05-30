@@ -82,7 +82,7 @@ popd
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -n libqxmpp
+%files -n %{name}
 %license LICENSES/*
 %doc AUTHORS CHANGELOG.md README.md
 %{_opt_qt5_libdir}/libqxmpp.*
