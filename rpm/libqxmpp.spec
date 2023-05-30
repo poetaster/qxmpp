@@ -65,7 +65,8 @@ pushd build
   -DBUILD_EXAMPLES=OFF \
   -DBUILD_TESTS=OFF \
   -DWITH_QCA=ON \
-  -DBUILD_OMEMO=ON 
+  -DBUILD_OMEMO=ON  \
+  -DWITH_OMEMO_V03=ON \
 
 %make_build
 
