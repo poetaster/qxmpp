@@ -1,4 +1,5 @@
 %global kf5_version 5.106.0
+%global qt_version 5.15.9
 
 Name:           opt-kf5-libqxmpp
 Version:        1.5
@@ -72,7 +73,7 @@ make DESTDIR=%{buildroot} install
 popd
 
 %check
-#export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
+export LD_LIBRARY_PATH=%{buildroot}%{_libdir}
 
 # Exclude tests needing a network connection
 #%{ctest --exclude-regex "tst_(qxmppcallmanager|qxmppiceconnection|qxmppserver|qxmpptransfermanager|qxmppuploadrequestmanager)"}
@@ -88,7 +89,6 @@ popd
 
 %files  devel
 %{_opt_qt5_includedir}/qxmpp/
-%{_opt_qt5_libdir}/libqxmpp.*
 %{_opt_qt5_libdir}/cmake/qxmpp/
 %{_opt_qt5_libdir}/cmake/QXmppOmemo/
 %{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
