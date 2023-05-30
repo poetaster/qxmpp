@@ -20,8 +20,8 @@ Source0:        %{name}-%{version}.tar.bz2
 BuildRequires:  cmake >= 3.7
 BuildRequires:  gcc-c++
 BuildRequires:  pkgconfig
-#BuildRequires:  doxygen
-#BuildRequires:  fdupes
+BuildRequires:  doxygen
+BuildRequires:  fdupes
 BuildRequires: opt-extra-cmake-modules >= %{kf5_version}
 BuildRequires: opt-qt5-qtbase-devel
 BuildRequires: opt-qt5-qtdeclarative-devel
@@ -37,15 +37,6 @@ Requires:      pkgconfig(libomemo-c)
 Requires:      opt-qca-qt5
 Requires:      opt-qca-qt5-ossl
 
-%if %{__isa_bits} == 32
-Provides:      libqxmpp.so.4
-Provides:      libQXmppOmemo.so.4
-%endif 
-%if %{__isa_bits} == 64
-Provides:      libqxmpp.so.4%{_isa}
-Provides:      libQXmppOmemo.so.4%{_isa}
-%endif 
-
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
 
@@ -59,7 +50,7 @@ Development files for QXmpp, a library for using the XMPP messenging
 protocol with Qt
 
 %prep
-%autosetup -n %{name}-%{version}/upstream -p1
+%autosetup -n %{name}-%{version}/ronqxmpp -p1
 
 %build
 export QTDIR=%{_opt_qt5_prefix}
@@ -94,14 +85,22 @@ popd
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -n %{name}
+%post   devel -p /sbin/ldconfig
+%postun devel -p /sbin/ldconfig
+
+%files -n %{name}                                                     
 %license LICENSES/*
 %doc AUTHORS CHANGELOG.md README.md
-%{_opt_qt5_libdir}/libqxmpp.*
-%{_opt_qt5_libdir}/libQXmppOmemo.*
+%{_opt_qt5_libdir}/libQXmppQt5.so*                                            
+%{_opt_qt5_libdir}/libQXmppOmemoQt5.so*                                       
+                                                                      
+%files -n devel                                               
+%{_opt_qt5_includedir}/QXmppQt5/                                              
+%{_opt_qt5_libdir}/libQXmppQt5.so*                                            
+%{_opt_qt5_libdir}/cmake/QXmppQt5/                                            
+%{_opt_qt5_libdir}/cmake/QXmpp/                                               
+%{_opt_qt5_libdir}/pkgconfig/QXmppQt5.pc                                      
+%{_opt_qt5_libdir}/pkgconfig/qxmpp.pc                                         
+%{_opt_qt5_libdir}/libQXmppOmemoQt5.so*                                       
+%{_opt_qt5_libdir}/cmake/QXmppOmemoQt5/                                       
 
-%files  devel
-%{_opt_qt5_includedir}/qxmpp/
-%{_opt_qt5_libdir}/cmake/qxmpp/
-%{_opt_qt5_libdir}/cmake/QXmppOmemo/
-%{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
