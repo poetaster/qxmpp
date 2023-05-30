@@ -1,5 +1,9 @@
 %global kf5_version 5.106.0
 
+%global __requires_exclude ^libqxmpp.*$|
+%global __requires_exclude ^libQXmppOmemo.*$|
+%global __requires_exclude ^libqca-qt5.*$|
+
 Name:           opt-kf5-libqxmpp
 Version:        1.5
 Release:        0
@@ -29,14 +33,26 @@ Requires:      opt-qca-qt5
 Requires:      opt-qca-qt5-ossl
 Requires:      pkgconfig(libomemo-c)
 
-%global __requires_exclude ^libqxmpp.*$|
-%global __requires_exclude ^libQXmppOmemo.*$|
-%global __requires_exclude ^libqca-qt5.*$|
-
 %{?opt_kf5_default_filter}
 
 %description
 QXmpp is a cross-platform C++ XMPP client library based on Qt and C++.
+
+%package -n libqxmpp
+Summary:	Library for using the XMPP messenging protocol with Qt
+Group:		System/Libraries
+
+%description -n libqxmpp
+Library for using the XMPP messenging protocol with Qt
+
+%package    devel
+Summary:	Development files for QXmpp
+Group:		Development/KDE and Qt
+Requires:	libqxmpp
+
+%description -n libqxmpp-devel
+Development files for QXmpp, a library for using the XMPP messenging
+protocol with Qt
 
 %prep
 %autosetup -n %{name}-%{version}/upstream -p1
@@ -74,14 +90,16 @@ popd
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-
-%files -n %{name}
+%files -n libqxmpp
 %license LICENSES/*
 %doc AUTHORS CHANGELOG.md README.md
+%{_opt_qt5_libdir}/libqxmpp.*
+%{_opt_qt5_libdir}/libQXmppOmemo.*
+
+%files  devel
 %{_opt_qt5_includedir}/qxmpp/
 %{_opt_qt5_libdir}/cmake/qxmpp/
 %{_opt_qt5_libdir}/pkgconfig/qxmpp.pc
 %{_opt_qt5_libdir}/cmake/QXmppOmemo/
-%{_opt_qt5_libdir}/libqxmpp.*
-%{_opt_qt5_libdir}/libQXmppOmemo.*
+%{_opt_qt5_libdir}/*.so
 
